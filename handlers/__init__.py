@@ -19,13 +19,16 @@ def setup(dp):
         commands=['start'],
         state=None)
 
-    dp.register_message_handler(
-        instagram_description,
-        lambda message: 'www.instagram.com' in message.text.lower(),
-        state=None)
-
     """moder handlers"""
     dp.register_message_handler(
         cmd_info,
         commands=["info"],
         state=None)
+
+    dp.register_message_handler(
+        instagram_description,
+        lambda message: 'www.instagram.com' in message.text.lower(),
+        state=None)
+
+    dp.register_message_handler(cmd_ocr,
+                                state=None)
