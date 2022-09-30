@@ -34,5 +34,5 @@ async def cmd_info(message: types.Message, state: FSMContext) -> types.Message |
 # function for getting images from message and sending ocr result
 async def cmd_ocr(message: types.Message, state: FSMContext) -> types.Message | str:
     await message.answer("Ожидайте, идет распознавание текста...")
-    await message.photo[-1].download('data/temp_ocr.png')
+    await message.photo[-1].download(destination_file='data/temp_ocr.png')
     await message.answer(utils.ocr())
