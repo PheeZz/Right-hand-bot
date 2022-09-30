@@ -30,5 +30,5 @@ def setup(dp):
         lambda message: 'www.instagram.com' in message.text.lower(),
         state=None)
 
-    dp.register_message_handler(cmd_ocr,
-                                state=None)
+    dp.register_message_handler(
+        cmd_ocr, lambda message: message.photo, state=None)
