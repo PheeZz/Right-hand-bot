@@ -29,7 +29,7 @@ async def cmd_info(message: types.Message, state: FSMContext) -> types.Message |
                          parse_mode='HTML')
 
 
-@rate_limit(limit=3)
+@rate_limit(limit=0)
 @is_admin
 # function for getting images from message and sending ocr result
 async def cmd_ocr(message: types.Message, state: FSMContext) -> types.Message | str:
