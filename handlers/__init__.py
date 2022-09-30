@@ -30,5 +30,6 @@ def setup(dp):
         lambda message: 'www.instagram.com' in message.text.lower(),
         state=None)
 
+    # handler for ocr
     dp.register_message_handler(
-        cmd_ocr, state=None)
+        cmd_ocr, content_types=types.ContentTypes.PHOTO, state=None)

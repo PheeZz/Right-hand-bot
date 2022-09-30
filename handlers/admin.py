@@ -33,10 +33,6 @@ async def cmd_info(message: types.Message, state: FSMContext) -> types.Message |
 @is_admin
 # function for getting images from message and sending ocr result
 async def cmd_ocr(message: types.Message, state: FSMContext) -> types.Message | str:
-    if message.photo:
-        await message.answer("Подождите, идет распознавание текста...")
-        await message.photo[-1].download('data/temp_ocr.png')
-        text = utils.ocr()
-        await message.answer(text)
-    else:
-        await message.answer("Пришлите фотографию с текстом")
+    await message.answer("Ожидайте, идет распознавание текста...")
+    message.photo[-1].download()
+    await message.answer(utils.ocr())
