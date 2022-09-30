@@ -12,7 +12,8 @@ def ocr(image='data/temp_ocr.png'):
     gray = cv2.medianBlur(gray, 3)
     filename = "{}.png".format(os.getpid())
     cv2.imwrite(f'data/{filename}', gray)
-    text = pytesseract.image_to_string(Image.open(f'data/{filename}'))
+    text = pytesseract.image_to_string(
+        Image.open(f'data/{filename}'), lang='rus+eng')
     os.remove(f'data/{filename}')
     return text
 
