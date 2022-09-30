@@ -13,7 +13,7 @@ def ocr(image='data/temp_ocr.png'):
     filename = "{}.png".format(os.getpid())
     cv2.imwrite(f'data/{filename}', gray)
     text = pytesseract.image_to_string(
-        Image.open(f'data/{filename}'), lang='rus+eng')
+        Image.open(f'data/{filename}'), lang='rus')
     os.remove(f'data/{filename}')
     return text
 
