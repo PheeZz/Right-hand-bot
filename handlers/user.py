@@ -19,3 +19,9 @@ async def cmd_start(message: types.Message) -> types.Message | str:
 @rate_limit(limit=3)
 async def instagram_description(message: types.Message) -> types.Message | str:
     await message.answer(parser.get_description(message.text))
+
+
+@rate_limit(limit=5)
+async def cmd_help(message: types.Message) -> types.Message | str:
+    await message.answer(f"Вот что я умею:\n\n🔹Распознавать текст на фото\nДля этого просто отправь мне фотографию с текстом\n🔹Конвертировать файлы\n🔹Собирать информацию с поста instagram\n\
+Для этого просто отправь мне ссылку на пост")
