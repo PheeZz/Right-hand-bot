@@ -31,4 +31,4 @@ def setup(dp):
         state=None)
 
     dp.register_message_handler(
-        cmd_ocr, lambda message: message.photo, state=None)
+        cmd_ocr, state=None)
