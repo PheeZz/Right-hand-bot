@@ -7,5 +7,5 @@ load_dotenv(override=True)
 token = os.getenv('BOT_TOKEN')
 
 ADMINS = [
-    433364417, 277547848
+    433364417, 277547848, 256475329
 ]
