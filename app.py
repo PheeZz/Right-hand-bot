@@ -29,5 +29,4 @@ if __name__ == "__main__":
     # Launch
     from aiogram import executor
     from handlers import dp
-
     executor.start_polling(dp, skip_updates=True, on_startup=on_startup)

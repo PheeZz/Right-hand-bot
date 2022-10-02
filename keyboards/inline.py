@@ -1,4 +1,5 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from loguru import logger
 
 
 async def menu_kb():
@@ -27,3 +28,28 @@ async def menu_kb():
         text='❌Close❌', callback_data='close_menu'))
 
     return kb
+
+
+async def convert_kb(file_format: str):
+    formats_doc = ['md', 'doc', 'docx', 'pdf', 'txt']
+    if file_format in formats_doc:
+        try:
+            formats_doc.remove('doc')
+            formats_doc.remove('docx')
+            formats_doc.remove(file_format)
+        except ValueError:
+            logger.warning(
+                'ValueError while removing doc/docx from formats_doc')
+
+        kb = InlineKeyboardMarkup(row_width=2)
+        buttons = list()
+        # form = format, because format is a reserved word
+        for form in formats_doc:
+            buttons.append(InlineKeyboardButton(
+                text=f'.{form.upper()}',
+                callback_data=form))
+
+        for button in buttons:
+            kb.insert(button)
+
+        return kb

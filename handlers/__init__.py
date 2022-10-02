@@ -19,7 +19,10 @@ def setup(dp):
         commands=['start'],
         state=None)
 
-    dp.register_message_handler(cmd_help, commands=['help'], state=None)
+    dp.register_message_handler(
+        cmd_help,
+        commands=['help'],
+        state=None)
 
     """moder handlers"""
     dp.register_message_handler(
@@ -33,4 +36,15 @@ def setup(dp):
         state=None)
 
     dp.register_message_handler(
-        cmd_ocr, content_types=types.ContentTypes.PHOTO, state=None)
+        cmd_ocr,
+        content_types=types.ContentTypes.PHOTO,
+        state=None)
+
+    dp.register_message_handler(
+        cmd_convert,
+        content_types=types.ContentTypes.DOCUMENT,
+        state=None)
+
+    dp.register_callback_query_handler(
+        cmd_convert_ext,
+        state=utils.fsm.choose_convert_ext.extention)
