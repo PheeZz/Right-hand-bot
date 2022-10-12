@@ -25,7 +25,7 @@ def convert_file(file_name: str, file_format: str) -> str:
         ]
         for string in remove_list:
             if file_format == 'md':
-                string = '**' + string + '**'
+                string = f'**{string}**'
             new_file = new_file.replace(string, '')
 
         with open(f'data\{file_name.split(".")[0]}.{file_format}', 'w') as file:

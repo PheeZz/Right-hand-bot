@@ -9,7 +9,7 @@ def ocr(image='data/temp_ocr.png'):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.threshold(gray, 0, 255,
                          cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-    filename = "{}.png".format(os.getpid())
+    filename = f"{os.getpid()}.png"
     cv2.imwrite(f'data/{filename}', gray)
     text = pytesseract.image_to_string(
         Image.open(f'data/{filename}'), lang='rus')

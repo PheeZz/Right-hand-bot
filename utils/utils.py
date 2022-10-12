@@ -31,11 +31,11 @@ def get_appeal(call: CallbackQuery) -> str:
     Returns:
         str: appeal for user
     """
-    return call['from']['first_name'] if call['from']['first_name'] else call['from']['username']
+    return call['from']['first_name'] or call['from']['username']
 
 
 # unused now, cause using middlewares.ThrottlingMiddleware
 async def anti_flood(*args, **kwargs):
     message = args[0]
 
-    await message.answer(f"Не флуди 👀")
+    await message.answer("Не флуди 👀")

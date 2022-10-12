@@ -42,12 +42,8 @@ async def convert_kb(file_format: str):
                 'ValueError while removing doc/docx from formats_doc')
 
         kb = InlineKeyboardMarkup(row_width=2)
-        buttons = list()
-        # form = format, because format is a reserved word
-        for form in formats_doc:
-            buttons.append(InlineKeyboardButton(
-                text=f'.{form.upper()}',
-                callback_data=form))
+        buttons = [InlineKeyboardButton(
+            text=f'.{form.upper()}', callback_data=form) for form in formats_doc]
 
         for button in buttons:
             kb.insert(button)
